@@ -1,0 +1,32 @@
+<div class="card flex justify-content-center">
+	<p-card [style]="{ width: '' }"
+		header="{{data.data.name}}"
+		subheader="No disponible">
+		<ng-template pTemplate="header">
+			<img style="padding-top: 1rem;"
+				src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{ data.id+1}}.svg"
+				alt="Card"
+				width="200"
+				height="200">
+
+		</ng-template>
+
+		<ng-template pTemplate="footer">
+			<ng-container *ngIf="data.registered;else buttonAttack">
+				<p-button [disabled]="true"
+					label="Capturado"
+					styleClass="p-button-danger"></p-button>
+			</ng-container>
+
+			<ng-template #buttonAttack>
+				<p-button (onClick)="attackPokemon()"
+					label="Attack!"
+					styleClass="p-button-danger"></p-button>
+			</ng-template>
+
+			<p-button [style]="{ 'margin-left': '.5em' }"
+				label="Cancel"
+				styleClass="p-button-secondary"></p-button>
+		</ng-template>
+	</p-card>
+</div>

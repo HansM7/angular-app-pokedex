@@ -1,0 +1,68 @@
+.content_all{
+  height: 100vh;
+  // background-image: url('https://img.freepik.com/vector-gratis/fondo-hexagonal-degradado-oscuro_52683-63120.jpg?w=1060&t=st=1699140915~exp=1699141515~hmac=8d9879bd7cac576d24d7d5b06c3452750b3446f426f502610a49f15d51d8661f');
+  background-color: #212121;
+  background-repeat:no-repeat;
+  background-size: 100% 100vh;
+  // background-position: center;
+}
+.main_battle{
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.content_battle{
+  padding-inline: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.item_vs {
+  width: fit-content;
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.events{
+  color: white;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  align-items: center;
+  margin-bottom: 2rem;
+  height: 2rem;
+}
+.options{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  // margin: auto;
+  align-items: center;
+  margin-top: 2rem;
+}
+.options p-button{
+  margin-bottom: 2rem;
+}
+
+.events img {
+  animation: scaleAnimation 2s infinite alternate;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,9 @@
+.content_pokemons{
+  padding: 2rem;
+}
+.card_grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}

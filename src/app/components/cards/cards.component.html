@@ -1,0 +1,30 @@
+<header style="background-color: #212121; height: 4rem; display: flex; flex-direction: row; justify-content: space-between; padding-inline: 3rem; align-items: center;">
+	<span style="color:white;font-size: 20px;">App pokemon</span>
+	<span style="color:white">
+
+		<p-menu #menu
+			[model]="items"
+			[popup]="true"></p-menu>
+
+		<p-avatar *ngIf="user;else templateLogin"
+			(click)="menu.toggle($event)"
+			image="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/85a954df-43b3-4b66-9e8d-94fe01b0451f/da9k0wb-1ae6c8d8-0b1f-46db-a6c9-3f9b44fc29bc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg1YTk1NGRmLTQzYjMtNGI2Ni05ZThkLTk0ZmUwMWIwNDUxZlwvZGE5azB3Yi0xYWU2YzhkOC0wYjFmLTQ2ZGItYTZjOS0zZjliNDRmYzI5YmMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ySQkI8GmpoOQ3KvsCwlwXd1l_QjJ7DsuqmcGP9fwnsE"
+			styleClass="mr-2"
+			size="large"
+			shape="circle"></p-avatar>
+
+		<ng-template #templateLogin>
+			<a routerLink="/auth">Login</a>
+		</ng-template>
+
+	</span>
+</header>
+<main>
+	<div class="content_pokemons">
+		<div class="card_grid">
+			<div *ngFor="let pokemon of pokemons">
+				<app-card [data]="pokemon"></app-card>
+			</div>
+		</div>
+	</div>
+</main>

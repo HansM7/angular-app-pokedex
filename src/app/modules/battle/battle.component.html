@@ -1,0 +1,66 @@
+<div *ngIf="id; else battleidTemplate"
+	class="content_all">
+
+	<div class="main_battle">
+		<div class="content_battle">
+			<div class="pokemon">
+				<img width="250"
+					src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{id}}.svg"
+					alt>
+			</div>
+			<div class="ash">
+				<img width="250"
+					src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/acd1d964-5264-4a73-b306-f21219b936a8/denrvko-440507a2-f341-4c47-ab83-4cc673e460c0.png/v1/fill/w_1920,h_3210/ash_render__35_by_cokicat_denrvko-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzIxMCIsInBhdGgiOiJcL2ZcL2FjZDFkOTY0LTUyNjQtNGE3My1iMzA2LWYyMTIxOWI5MzZhOFwvZGVucnZrby00NDA1MDdhMi1mMzQxLTRjNDctYWI4My00Y2M2NzNlNDYwYzAucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.1IZQUy2LvxaEMJLIL5Xmdtqomx31KQg5VnK7_EZBxt8"
+					alt>
+			</div>
+			<div class="item_vs">
+				<img width="100"
+					src="https://upload.wikimedia.org/wikipedia/commons/7/70/Street_Fighter_VS_logo.png"
+					alt>
+			</div>
+		</div>
+		<div class="events">
+			<ng-container *ngIf="isAttack">
+				<span>
+					Atacando... &nbsp;&nbsp;&nbsp;&nbsp;
+				</span>
+
+				<img width="50"
+					src="https://www.svgrepo.com/show/276264/pokeball-pokemon.svg"
+					alt>
+			</ng-container>
+			<!-- <ng-container *ngIf="results.isResults">
+				<ng-container *ngIf="results.response;else templateName">
+					Se capturo correctamente
+				</ng-container>
+				<ng-template #templateName>No se pudo capturar</ng-template>
+			</ng-container> -->
+		</div>
+		<div class="options">
+			<p-button [disabled]="results.response"
+				(onClick)="attackBattle()"
+				label="Attack! 🗡️"
+				severity="danger"></p-button>
+
+			<ng-container *ngIf="results.response;else buttonOkTemplate">
+				<p-button (onClick)="fleeBattle()"
+					label="Return "
+					severity="help"></p-button>
+			</ng-container>
+
+			<ng-template #buttonOkTemplate>
+				<p-button (onClick)="fleeBattle()"
+					label="Flee! 😫"
+					severity="help"></p-button>
+			</ng-template>
+
+		</div>
+	</div>
+
+	<p-toast position="bottom-right"
+		key="br"></p-toast>
+</div>
+
+<ng-template #battleidTemplate>
+	<ng-container>No hay id</ng-container>
+</ng-template>
