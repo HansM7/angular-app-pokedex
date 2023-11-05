@@ -33,31 +33,8 @@ export class PokemonService {
     );
   }
 
-  // captureNamePokemon(id: number): Observable<any> {
-  //   return this.http.get<APIResponse>(`${this.api_url}/${id}`).pipe(
-  //     map((response: APIResponse) => {
-  //       if (response) {
-  //         return response.results.map((pokemon) => pokemon.name);
-  //       }
-  //       return undefined;
-  //     })
-  //   );
-  // }
-
   getImage(name: string): Observable<IPokemon> {
-    console.log('first');
     return this.http.get<IPokemon>(`${this.api_url}/${name}`);
-    // .pipe(
-    //   map((response) => {
-    //     console.log(response);
-    //     if (response) {
-    //       const urlImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${response.id}.png`;
-    //       console.log(urlImage);
-    //       return urlImage;
-    //     }
-    //     return '';
-    //   })
-    // );
   }
 
   public getPokemon(id: string): Observable<IPokemon> {

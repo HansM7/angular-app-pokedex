@@ -21,7 +21,16 @@ export class BattleComponent {
     isResults: false,
     response: false,
   };
-  probabilities: boolean[] = [false, true, true, true, false, true, true, true];
+  probabilities: boolean[] = [
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    false,
+  ];
 
   constructor(
     private route: ActivatedRoute,
@@ -34,7 +43,6 @@ export class BattleComponent {
     this.id = this.route.snapshot.paramMap.get('id') as string;
     this.pokemonService.getPokemon(this.id).subscribe((data) => {
       this.pokemon = data;
-      console.log(this.pokemon);
     });
     this.user = this.userService.existUser();
   }
@@ -68,13 +76,11 @@ export class BattleComponent {
 
     setTimeout(() => {
       this.results = { ...this.results, isResults: true, response };
-      console.log(this.results);
-    }, 5100); // 5000 milisegundos = 5 segundos
+    }, 5100);
 
     setTimeout(() => {
-      // this.results = { ...this.results, isResults: false };
       this.show();
-    }, 6000); // 5000 milisegundos = 5 segundos
+    }, 6000);
   }
 
   addPokemonToPokedex() {
@@ -86,8 +92,6 @@ export class BattleComponent {
       },
     };
 
-    this.userService.registerPokemon(body)?.subscribe((data) => {
-      console.log(data);
-    });
+    this.userService.registerPokemon(body)?.subscribe((data) => {});
   }
 }

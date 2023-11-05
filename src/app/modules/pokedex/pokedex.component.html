@@ -1,3 +1,66 @@
-<p>
-  pokedex works!
-</p>
+<header style="background-color: #212121; height: 4rem; display: flex; flex-direction: row; justify-content: space-between; padding-inline: 3rem; align-items: center;">
+	<a routerLink="/"
+		style="color:white;font-size: 20px;">
+		App pokemon
+	</a>
+	<span style="color:white">
+
+		<p-menu #menu
+			[model]="items"
+			[popup]="true"></p-menu>
+
+		<p-avatar *ngIf="user;else templateLogin"
+			(click)="menu.toggle($event)"
+			image="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/85a954df-43b3-4b66-9e8d-94fe01b0451f/da9k0wb-1ae6c8d8-0b1f-46db-a6c9-3f9b44fc29bc.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg1YTk1NGRmLTQzYjMtNGI2Ni05ZThkLTk0ZmUwMWIwNDUxZlwvZGE5azB3Yi0xYWU2YzhkOC0wYjFmLTQ2ZGItYTZjOS0zZjliNDRmYzI5YmMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ySQkI8GmpoOQ3KvsCwlwXd1l_QjJ7DsuqmcGP9fwnsE"
+			styleClass="mr-2"
+			size="large"
+			shape="circle"></p-avatar>
+
+		<ng-template #templateLogin>
+			<a routerLink="/auth">Login</a>
+		</ng-template>
+
+	</span>
+</header>
+
+<!-- <app-header [user]="user"></app-header> -->
+
+<main class="main_pokedex">
+	<div class="content_pokedex">
+		<div class="avatar">
+			<img src="https://images.wikidexcdn.net/mwuploads/wikidex/0/0a/latest/20141130014622/Profesor_Oak_%28XY%29.png"
+				alt>
+			<p>
+				Hola guerrero 🔥, puedes ver tus pokemones al lado derecho 🐯
+			</p>
+		</div>
+		<div class="pokemons">
+			<ng-container *ngFor="let item of pokemons">
+				<div class="card flex justify-content-center">
+					<p-card [style]="{ width: '' }"
+						header="{{item.pokemon.name}}"
+						subheader="No disponible">
+						<ng-template pTemplate="header">
+							<img style="padding-top: 1rem;"
+								src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{ item.pokemon.id}}.svg"
+								alt="Card"
+								width="100"
+								height="200">
+
+						</ng-template>
+
+						<ng-template pTemplate="content">
+
+							<a [style]="{ 'margin-left': '.5em' }"
+								class="p-button p-button-info"
+								routerLink>
+								Detalle
+							</a>
+						</ng-template>
+					</p-card>
+				</div>
+
+			</ng-container>
+		</div>
+	</div>
+</main>

@@ -1,0 +1,56 @@
+<app-header [user]="user"></app-header>
+<div style="width: 100%;display: flex; justify-content: center;flex-direction: column; align-items: center;">
+
+	<h1>Register to Pokedex</h1>
+
+	<form [formGroup]="signInGroup"
+		(submit)="onSubmit()"
+		class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
+		<div class="flex flex-wrap justify-content-center align-items-center gap-2"
+			style="margin-bottom: 1rem;">
+			<label class="w-6rem">Username</label>
+			<input pInputText
+				autocomplete="off"
+				formControlName="username"
+				id="username"
+				type="text"
+				class>
+			<div class=" w-22rem"
+				style="height: 1rem;">
+				<small *ngIf="signInGroup.get('username')?.touched "
+					id
+					class="w-22rem"
+					style="color: red;">
+					{{signInGroup.get('username')?.errors | login}}
+				</small>
+			</div>
+
+		</div>
+		<div class="flex flex-wrap justify-content-center align-items-center gap-2"
+			style="margin-bottom: 1rem;">
+			<label class="w-6rem">Password</label>
+			<p-password class
+				id="password"
+				formControlName="password"></p-password>
+			<div class=" w-22rem"
+				style="height: 1rem;">
+				<small *ngIf="signInGroup.get('password')?.touched"
+					id
+					class="w-22rem"
+					style="color: red;">
+					{{signInGroup.get('password')?.errors | login}}
+				</small>
+			</div>
+		</div>
+		<p-button type="submit"
+			label="Sign in"
+			icon="pi pi-user"
+			styleClass="w-9rem mx-auto"></p-button>
+
+		<img class="icon_pokemon"
+			width="200"
+			src="https://archive.org/download/PokemonIcon/pokemon%20icon.png"
+			alt>
+	</form>
+
+</div>

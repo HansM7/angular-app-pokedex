@@ -1,7 +1,6 @@
 <div class="card flex justify-content-center">
 	<p-card [style]="{ width: '' }"
-		header="{{data.data.name}}"
-		subheader="No disponible">
+		header="{{data.data.name}}">
 		<ng-template pTemplate="header">
 			<img style="padding-top: 1rem;"
 				src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{ data.id+1}}.svg"
@@ -14,7 +13,7 @@
 		<ng-template pTemplate="footer">
 			<ng-container *ngIf="data.registered;else buttonAttack">
 				<p-button [disabled]="true"
-					label="Capturado"
+					label="Saved!"
 					styleClass="p-button-danger"></p-button>
 			</ng-container>
 
@@ -24,9 +23,11 @@
 					styleClass="p-button-danger"></p-button>
 			</ng-template>
 
-			<p-button [style]="{ 'margin-left': '.5em' }"
-				label="Cancel"
-				styleClass="p-button-secondary"></p-button>
+			<a [style]="{ 'margin-left': '.5em' }"
+				class="p-button p-button-info"
+				routerLink>
+				Detail
+			</a>
 		</ng-template>
 	</p-card>
 </div>

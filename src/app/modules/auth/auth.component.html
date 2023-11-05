@@ -1,3 +1,4 @@
+<app-header [user]="user"></app-header>
 <section>
 
 	<div class="flex flex-column md:flex-row">
@@ -27,9 +28,15 @@
 			<div class="flex flex-wrap justify-content-center align-items-center gap-2"
 				style="margin-bottom: 1rem;">
 				<label class="w-6rem">Password</label>
-				<p-password class
+				<!-- <p-password class
 					id="password"
-					formControlName="password"></p-password>
+					formControlName="password"></p-password> -->
+				<input pInputText
+					autocomplete="off"
+					formControlName="password"
+					id="password"
+					type="password"
+					class>
 				<div class=" w-22rem"
 					style="height: 1rem;">
 					<small *ngIf="loginGroup.get('password')?.touched"
@@ -57,9 +64,12 @@
 			</p-divider>
 		</div>
 		<div class="w-full md:w-5 flex align-items-center justify-content-center py-5">
-			<p-button label="Sign Up"
-				icon="pi pi-user-plus"
-				styleClass="p-button-success w-10rem"></p-button>
+			<a href="/auth/register"
+				class="p-button p-button-success w-10rem">
+				<i class="pi pi-user-plus"></i>
+				&nbsp;
+				Sign Up
+			</a>
 		</div>
 	</div>
 

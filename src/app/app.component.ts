@@ -22,16 +22,6 @@ export class AppComponent {
   constructor(public pokemonService: PokemonService) {
     this.pokemonService.getPokemons().subscribe((data) => {
       this.pokemons = data;
-      console.log(this.pokemons);
     });
   }
-
-  // getImage(name: string): Observable<string> | any {
-  //   this.pokemonService.getImage(name).subscribe((data) => {
-  //     this.url = data;
-  //     console.log(this.url);
-  //   });
-  //   // return this.pokemonService.getImage(name);
-  //   // .pipe(map((data) => data));
-  // }
 }

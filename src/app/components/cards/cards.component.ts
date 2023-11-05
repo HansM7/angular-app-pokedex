@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { pokInArray } from 'src/app/core/models/interfaces/pokeapi.interface';
 import { IUser } from 'src/app/core/models/interfaces/user.interface';
@@ -18,35 +19,35 @@ export class CardsComponent implements OnInit {
 
   constructor(
     public pokemonService: PokemonService,
-    public userService: UserService
+    public userService: UserService,
+    public router: Router
   ) {
     this.pokemonService.getPokemons().subscribe((data) => {
       this.pokemons = data;
     });
     this.user = this.userService.existUser();
 
-    this.userService.getMyPokemons(this.user.id).subscribe((response) => {
-      console.log(response);
+    if (this.user) {
+      this.userService.getMyPokemons(this.user.id).subscribe((response) => {
+        this.pokemons.forEach((pokemon: any) => {
+          const foundPokemon = response.find(
+            (item: any) => item.pokemon.name === pokemon.data.name
+          );
 
-      this.pokemons.forEach((pokemon: any) => {
-        const foundPokemon = response.find(
-          (item: any) => item.pokemon.name === pokemon.data.name
-        );
-
-        if (foundPokemon) {
-          pokemon.registered = true;
-        } else {
-          pokemon.registered = false;
-        }
+          if (foundPokemon) {
+            pokemon.registered = true;
+          } else {
+            pokemon.registered = false;
+          }
+        });
       });
-      console.log(this.pokemons);
-    });
+    }
   }
 
   ngOnInit(): void {
     this.items = [
       {
-        label: this.user.username,
+        label: this.user ? this.user.username : '',
         items: [
           {
             label: 'Pokedex',
@@ -56,10 +57,15 @@ export class CardsComponent implements OnInit {
           {
             label: 'Logout',
             icon: 'pi pi-upload',
-            routerLink: '/fileupload',
+            command: () => this.logout(),
           },
         ],
       },
     ];
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/auth']);
   }
 }

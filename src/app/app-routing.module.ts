@@ -8,6 +8,8 @@ import { pokedexGuard } from './core/guards/pokedex.guard';
 import { authGuard } from './core/guards/auth.guard';
 import { BattleModule } from './modules/battle/battle.module';
 import { BattleComponent } from './modules/battle/battle.component';
+import { RegisterComponent } from './modules/auth/pages/register/register.component';
+import { AuthModule } from './modules/auth/auth.module';
 
 const routes: Routes = [
   {
@@ -17,7 +19,16 @@ const routes: Routes = [
   {
     path: 'auth',
     canActivate: [authGuard],
-    component: AuthComponent,
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+    // component: AuthComponent,
+    // children: [
+    //   {
+    //     path: 'register',
+    //     canActivate: [authGuard],
+    //     component: RegisterComponent,
+    //   },
+    // ],
   },
   {
     path: 'pokedex',
@@ -29,15 +40,15 @@ const routes: Routes = [
     canActivate: [pokedexGuard],
     component: BattleComponent,
   },
-  {
-    path: 'battle',
-    canActivate: [pokedexGuard],
-    component: BattleComponent,
-  },
-  {
-    path: '**',
-    component: Error404Component,
-  },
+  // {
+  //   path: 'battle',
+  //   canActivate: [pokedexGuard],
+  //   component: BattleComponent,
+  // },
+  // {
+  //   path: '**',
+  //   component: Error404Component,
+  // },
 ];
 
 @NgModule({

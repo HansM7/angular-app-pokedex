@@ -1,35 +1,4 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "hans",
-      "password": "123"
-    }
-  ],
-  "pokemons": [
-    {
-      "user_id": 1,
-      "pokemon": {
-        "id": 2,
-        "name": "ivysaur"
-      },
-      "id": 1
-    },
-    {
-      "id": 2,
-      "user_id": 2,
-      "pokemon": {
-        "id": 1,
-        "name": "pikachu"
-      }
-    },
-    {
-      "user_id": 1,
-      "pokemon": {
-        "id": 3,
-        "name": "venusaur"
-      },
-      "id": 3
-    }
-  ]
+  "users": [],
+  "pokemons": []
 }

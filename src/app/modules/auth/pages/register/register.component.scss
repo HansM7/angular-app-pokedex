@@ -1,0 +1,16 @@
+.icon_pokemon {
+  margin-top: 3rem;
+  animation: scaleAnimation 2s infinite alternate;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

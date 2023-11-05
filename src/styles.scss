@@ -4,6 +4,11 @@
 @import "node_modules/primeicons/primeicons.css";
 @import "node_modules/primeflex/primeflex.css";
 
-body{
+body {
   margin: 0;
+}
+
+*a {
+  text-decoration: none;
+  color: white;
 }

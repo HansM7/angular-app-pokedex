@@ -53,23 +53,13 @@ export class UserService {
     );
   }
 
-  // get getPokemons(): Observable<any> {
-  //   return this.http.get(`http://localhost:3000/pokemons`).pipe(
-  //     map((response) => {
-  //       return response;
-  //     })
-  //   );
-  // }
+  register(data: ILogin): Observable<any> {
+    return this.http.post<any>(`http://localhost:3000/users`, data);
+  }
 
-  // registerPokemon(body: any): Observable<any> {
-  //   return this.getPokemons.pipe(
-  //     map((pokemons: any[]) => {
-  //       const data = { ...body, id: pokemons.length + 1 };
-  //       console.log(data);
-  //       return this.http.post(`http://localhost:3000/pokemons`, data);
-  //     })
-  //   );
-  // }
+  logout() {
+    window.localStorage.clear();
+  }
 
   getPokemons(): Observable<any> {
     return this.http.get(`http://localhost:3000/pokemons`);

@@ -5,20 +5,20 @@ import { ILogin, IUser } from 'src/app/core/models/interfaces/user.interface';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
-export class AuthComponent implements OnInit {
-  loginGroup: FormGroup;
+export class RegisterComponent implements OnInit {
   user: IUser;
+  signInGroup: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router
   ) {
-    this.loginGroup = this.formBuilder.group({
+    this.signInGroup = this.formBuilder.group({
       username: [
         '',
         [
@@ -35,15 +35,13 @@ export class AuthComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(): void {
-    if (this.loginGroup.valid) {
+    if (this.signInGroup.valid) {
       const data: ILogin = {
-        username: this.loginGroup.value['username'],
-        password: this.loginGroup.value['password'],
+        username: this.signInGroup.value['username'],
+        password: this.signInGroup.value['password'],
       };
-      this.userService.login(data).subscribe((data) => {
-        if (data) {
-          this.router.navigate(['/pokedex']);
-        } else alert('Error');
+      this.userService.register(data).subscribe((data) => {
+        this.router.navigate(['/auth']);
       });
     }
   }

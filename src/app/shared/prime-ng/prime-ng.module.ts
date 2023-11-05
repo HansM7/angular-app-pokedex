@@ -20,7 +20,6 @@ import { ToastModule } from 'primeng/toast';
     DividerModule,
     InputTextModule,
     PasswordModule,
-    BrowserAnimationsModule,
     AvatarModule,
     AvatarGroupModule,
     MenuModule,
