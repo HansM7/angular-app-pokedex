@@ -78,12 +78,13 @@ export class UserService {
   }
 
   registerPokemon(body: any): Observable<any> {
-    return this.getPokemons().pipe(
-      switchMap((pokemons: any[]) => {
-        const data = { ...body, id: pokemons.length + 1 };
-        return this.http.post(api_backend + 'pokemons', data);
-      })
-    );
+    return this.http.post(api_backend + 'pokemons', body);
+    // return this.getPokemons().pipe(
+    //   switchMap((pokemons: any[]) => {
+    //     const data = { ...body, id: pokemons.length + 1 };
+
+    //   })
+    // );
   }
 
   getMyPokemons(id: number) {
