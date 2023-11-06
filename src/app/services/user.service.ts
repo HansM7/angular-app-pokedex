@@ -91,7 +91,6 @@ export class UserService {
     return this.http.get(api_backend + 'pokemons/user/' + id).pipe(
       map((response) => response),
       map((response: any) => {
-        console.log(response);
         return response.filter((data: any) => data.user_id === id);
       })
     );

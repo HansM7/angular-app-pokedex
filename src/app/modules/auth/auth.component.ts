@@ -41,9 +41,7 @@ export class AuthComponent implements OnInit {
         password: this.loginGroup.value['password'],
       };
       this.userService.login(data).subscribe((data) => {
-        console.log(data);
         if (data) {
-          console.log('routeeee');
           this.router.navigate(['/pokedex']);
         } else alert('Error');
       });

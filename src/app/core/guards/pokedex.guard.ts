@@ -4,7 +4,6 @@ import { UserService } from 'src/app/services/user.service';
 import { map } from 'rxjs/operators';
 
 export const pokedexGuard: CanActivateFn = (route, state) => {
-  console.log('llegue aqui');
   const router = inject(Router);
   const userService = inject(UserService);
 
