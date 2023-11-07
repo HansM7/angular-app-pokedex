@@ -18,10 +18,13 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { AvatarModule } from 'primeng/avatar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
+import { CommonModule } from '@angular/common';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
 
 @NgModule({
-  declarations: [AppComponent, CardsComponent, CardComponent],
+  declarations: [AppComponent, CardsComponent, CardComponent, PokemonComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     RouterModule,
     HttpClientModule,

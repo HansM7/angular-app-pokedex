@@ -33,6 +33,12 @@ export class PokemonService {
     );
   }
 
+  getPokemonApi(id: number): Observable<IPokemon> {
+    return this.http
+      .get<IPokemon>(this.api_url + '/' + id)
+      .pipe(map((data) => data));
+  }
+
   getImage(name: string): Observable<IPokemon> {
     return this.http.get<IPokemon>(`${this.api_url}/${name}`);
   }

@@ -1,0 +1,31 @@
+<section>
+	<div class="content_selected">
+		<div class="selected_img">
+			<img width="300"
+				src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{id}}.svg"
+				alt>
+		</div>
+		<div class="selected_details">
+			<h1>
+				{{pokemon.name | uppercase}}
+			</h1>
+		</div>
+		<div style="display: flex; flex-direction: row; justify-content: space-around; width: 100%;">
+			<div class="selected_abilities">
+				<h3>Habilidades</h3>
+				<div *ngFor="let item of pokemon.abilities">
+					<div class="label">
+						{{item.ability.name }}
+					</div>
+				</div>
+			</div>
+			<div class="selected_type">
+				<h3>Tipo</h3>
+				<div *ngFor="let item of pokemon.types">
+					<div class="label">{{item.type.name }}</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>

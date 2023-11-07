@@ -10,11 +10,20 @@ import { BattleModule } from './modules/battle/battle.module';
 import { BattleComponent } from './modules/battle/battle.component';
 import { RegisterComponent } from './modules/auth/pages/register/register.component';
 import { AuthModule } from './modules/auth/auth.module';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
 
 const routes: Routes = [
   {
     path: '',
     component: CardsComponent,
+  },
+  {
+    path: 'pokemon',
+    component: CardsComponent,
+  },
+  {
+    path: 'pokemon/:id',
+    component: PokemonComponent,
   },
   {
     path: 'auth',
